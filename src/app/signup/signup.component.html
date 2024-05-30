@@ -1,0 +1,205 @@
+<div>
+  <button type="button" (click) = "onCloseButton()" class="btn-close cls-btn m-3" aria-label="Close"></button>
+</div>
+<h1 class="pb-3" style="text-align: center;">Sign up</h1>
+<!-- <nav class="navbar navbar-light bg-primary mb-4">
+  <a class="navbar-brand" href="#">
+    <h4 class="text-light font-weight-bold">
+     Sign up
+    </h4>
+  </a>
+</nav> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="mx-auto">
+            <div class="form-group mb-2">
+             
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <!-- <span class="input-group-text">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </span> -->
+                </div>
+                <input
+                  type="text"
+                  id="firstName"
+                  class="form-control"
+                  placeholder="First Name"
+                  formControlName="firstName"
+                />
+              </div>
+              <div class="invalid-feedback" *ngIf="
+                    registrationForm?.controls?.firstName?.status === 'INVALID' &&
+                    (registrationForm?.controls?.firstName?.touched ||
+                      registrationForm?.controls?.firstName?.dirty)
+                  "
+                  >
+                  <span *ngIf="registrationForm?.controls?.firstName?.errors?.required"
+                >Required</span>
+
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <!-- <span class="input-group-text">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span> -->
+                  </div>
+                  <input
+                    type="text"
+                    id="lastName"
+                    class="form-control"
+                    placeholder="Last Name"
+                    formControlName="lastName"
+                  />
+                </div>
+                <div class="invalid-feedback" *ngIf="
+                      registrationForm?.controls?.lastName?.status === 'INVALID' &&
+                      (registrationForm?.controls?.lastName?.touched ||
+                        registrationForm?.controls?.lastName?.dirty)
+                    "
+                    >
+                    <span *ngIf="registrationForm?.controls?.lastName?.errors?.required"
+                  >Required</span>
+  
+                  </div>
+                </div>
+                <div class="form-group mb-2">
+                 
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <!-- <span class="input-group-text">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                      </span> -->
+                    </div>
+                    <input
+                      type="number"
+                      id="age"
+                      class="form-control"
+                      placeholder="Age"
+                      formControlName="age"
+                    />
+                  </div>
+                  <div class="invalid-feedback" *ngIf="
+                        registrationForm?.controls?.age?.status === 'INVALID' &&
+                        (registrationForm?.controls?.age?.touched ||
+                          registrationForm?.controls?.age?.dirty)
+                      "
+                      >
+                      <span *ngIf="registrationForm?.controls?.age?.errors?.required"
+                    >Required</span>
+    
+                    </div>
+                  </div>
+            <!-- <div class="form-group mb-2">
+              <label>Password</label>
+              <div class="input-group">
+                <input
+                  [type]="fieldTextType ? 'text' : 'password'"
+                  class="form-control"
+                  formControlName="password"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i
+                      class="fa"
+                      [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }"
+                      (click)="toggleFieldTextType()"
+                    ></i>
+                  </span>
+                </div>
+              </div>
+              <div
+              class="invalid-feedback"
+              *ngIf="
+                registrationForm?.controls?.password?.invalid &&
+                (registrationForm?.controls?.password?.touched ||
+                  registrationForm?.controls?.password?.dirty)
+              "
+            >
+              <span *ngIf="registrationForm?.controls?.password?.errors?.required"
+                >Required</span
+              >
+              <span
+                class="w-50"
+                *ngIf="
+                  registrationForm?.controls?.password?.errors?.minlength ||
+                  registrationForm?.controls?.password?.errors?.pattern
+                "
+              >
+                The password should have atleast 8 characters. It should one
+                upper case letter, one lower case letter and one special
+                character.
+              </span>
+            </div>
+            </div> -->
+
+            <!-- <div class="form-group mb-2">
+              <label>Repeat your password
+              </label>
+              <div class="input-group">
+                <input
+                  [type]="repeatFieldTextType ? 'text' : 'password'"
+                  class="form-control"
+                  formControlName="confirmpassword"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i
+                      class="fa"
+                      [ngClass]="{
+                        'fa-eye-slash': !repeatFieldTextType,
+                        'fa-eye': repeatFieldTextType
+                      }"
+                      (click)="toggleRepeatFieldTextType()"
+                    ></i>
+                  </span>
+                </div>
+              </div>
+              <div
+              class="invalid-feedback"
+              *ngIf="
+                registrationForm?.controls?.confirmpassword?.invalid &&
+                (registrationForm?.controls?.confirmpassword?.touched ||
+                  registrationForm?.controls?.confirmpassword?.dirty)
+              "
+            >
+              <span *ngIf="registrationForm?.controls?.confirmpassword?.errors?.required"
+                >Required</span
+              >
+              <span *ngIf="registrationForm?.get('confirmpassword')?.errors?.PasswordNoMatch && registrationForm?.get('confirmpassword')?.touched">
+                Password mismatch
+
+              </span>
+              <span
+                class="w-50"
+                *ngIf="
+                  registrationForm?.controls?.confirmpassword?.errors?.minlength ||
+                  registrationForm?.controls?.confirmpassword?.errors?.pattern
+                "
+              >
+                The password should have atleast 8 characters. It should one
+                upper case letter, one lower case letter and one special
+                character.
+              </span>
+              
+            </div>
+            </div> -->
+            <button type="submit"  class="btn-primary btn w-100">
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="container">
+    <button type="button" (click) = "onCloseButton()" class="btn-close cls-btn" aria-label="Close"></button>
+    <div class="row m-5 no-gutters shadow-lg">
+        <div class="col-md-6 d-none d-md-block">
+            <img src="/assets/shopping_logo.jpg" class="img-fluid" style="min-height:100%;" />
+        </div>
+        <div class="col-md-6 bg-white p-5">
+            <h3 class="pb-3">Login Form</h3>
+            <div class="form-style">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="pb-3">
+                        <input type="email" formControlName="username" placeholder="Email" class="form-control"
+                            id="username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="invalid-feedback" *ngIf="
+                    loginForm?.controls?.username?.status === 'INVALID' &&
+                    (loginForm?.controls?.username?.touched ||
+                      loginForm?.controls?.username?.dirty)
+                  "
+                  >
+                  <span *ngIf="loginForm?.controls?.username?.errors?.required"
+                >Required</span
+              >
+              <span
+                *ngIf="
+                  loginForm?.controls?.username?.errors?.minlength ||
+                  loginForm?.controls?.username?.errors?.pattern
+                "
+              >
+                Enter a valid email id pattern.
+              </span>
+                </div>
+                <div class="form-group mb-2">
+                  <div class="input-group">
+                    <input [type]="fieldTextType ? 'text' : 'password'" formControlName="password" placeholder="Password" class="form-control"
+                            id="password"/>
+                            <div class="input-group-append">
+                              <span>
+                                <i
+                      class="fa"
+                      [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }"
+                      (click)="toggleFieldTextType()"
+                    ></i>
+                              </span>
+                            </div>
+
+                  </div>
+                </div>
+                    <div
+              class="invalid-feedback"
+              *ngIf="
+                loginForm?.controls?.password?.invalid &&
+                (loginForm?.controls?.password?.touched ||
+                  loginForm?.controls?.password?.dirty)
+              "
+            >
+              <span *ngIf="loginForm?.controls?.password?.errors?.required"
+                >Required</span
+              >
+              <span
+                class="w-50"
+                *ngIf="
+                  loginForm?.controls?.password?.errors?.minlength 
+                "
+              >
+                The password should have atleast 8 characters.
+              </span>
+            </div>
+
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <input formControlName="confirm" (change)="onCheckChange()" id="confirm" type="checkbox"/> <span
+                                class="m-3"> By creating or logging into an account, you are agreeing with
+                                our
+                                <b>Terms & Conditions</b> & <b>Privacy Policies.</b></span></div>
+                    </div>
+                    <div class="pb-2">
+                        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary w-100 font-weight-bold mt-2">Login</button>
+                    </div>
+                </form>
+                <div class="pt-4 text-center">
+                    New user. <a routerLink="" (click)="navigateToSignup()">Sign Up</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
