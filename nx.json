@@ -17,6 +17,9 @@
         "default",
         "^production"
       ]
+    },
+    "lint": {
+      "cache": true
     }
   },
   "defaultBase": "main",
@@ -32,6 +35,5 @@
       "!{projectRoot}/**/*.spec.[jt]s"
     ]
   },
-  
-  "nxCloudAccessToken": "MDU5ZWMxNjctZTJhNC00MjlmLTgxN2ItYzdlOWQ5N2M4NjU3fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NzhlYjQzODQtMmM2MS00NzI3LThhZmItMDNlZGQwN2Q3Y2U1fHJlYWQtd3JpdGU="
 }
