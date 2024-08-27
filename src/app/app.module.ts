@@ -26,21 +26,31 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { OrdersComponent } from './orders/orders.component'
 import { MatPseudoCheckbox } from '@angular/material/core';
 import { StoreModule } from '@ngrx/store';
-import { productReducer } from './signup/product.reducer';
+// import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { productReducer } from './prod/products.reducers';
+import { ProductEffects } from './prod/products.effects';
+import { EffectsModule } from '@ngrx/effects';
 // import { reducers, metaReducers } from './reducers';
+import { AgGridAngular } from 'ag-grid-angular';
+import { CardComponent } from './shared/components/card/card.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WelcomeComponent,
-    SignupComponent,
+    SignupComponent,  
     CartComponent,
     TopNavigationComponent,
     ProductsComponent,
     UsersComponent,
     CheckoutComponent,
     OrdersComponent,
+    CardComponent,
+    TruncatePipe,
     
   ],
   imports: [
@@ -52,6 +62,7 @@ import { productReducer } from './signup/product.reducer';
     CommonModule, 
     MatToolbarModule,
     MatButtonModule, 
+    AgGridAngular,
     MatCardModule,
     MatDialogModule,
     MatMenuModule,
@@ -60,10 +71,12 @@ import { productReducer } from './signup/product.reducer';
     MatIconAnchor,
     MatPseudoCheckbox,
     StoreModule.forRoot( { products:productReducer
-      
-    })
+    }),
+    EffectsModule.forRoot([ProductEffects])
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,
+    // provideEffects([ProductEffects])
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

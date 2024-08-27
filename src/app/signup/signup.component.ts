@@ -63,6 +63,7 @@ export class SignupComponent implements OnInit {
         firstName: this.registrationForm.controls.firstName.value,
         lastName: this.registrationForm.controls.lastName.value,
         age: this.registrationForm.controls.age.value,
+        id: Math.random()*10,
       }
       this.usersService.createUser(body).subscribe({
         next: (value: User) => {

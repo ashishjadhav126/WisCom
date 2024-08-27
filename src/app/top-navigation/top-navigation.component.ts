@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { SignupComponent } from '../signup/signup.component';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-top-navigation',
@@ -37,10 +38,14 @@ export class TopNavigationComponent {
     });
   }
   navigateToCart() {
-    this.router.navigate(['cart']);
+    const dialogRef = this.dialog.open(CartComponent);
+    // this.router.navigate(['cart']);
   }
   navigateToProduct() {
     this.router.navigate(['products']);
+  }
+  navigateToUsers(){
+    this.router.navigate(['users/user-list']);
   }
   navigateLogin() {
     const dialogRef = this.dialog.open(LoginComponent);

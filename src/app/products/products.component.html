@@ -1,42 +1,54 @@
 <app-top-navigation></app-top-navigation>
-<div class="parent">
-      <!-- <h2 class="checkbox-inline">
-        <input type="checkbox" data-toggle="toggle" checked="checked" (change)="checkCheckBoxvalue($event)"/> Card view 
-      </h2> -->
-    <!-- <div *ngIf="!hideGridView" class="content"> -->
-        <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
-        <!-- <ag-grid-angular
-          style="width: 100%; height: 550px;"
-          [class]="themeClass"
-          [rowData]="rowData"
-          [columnDefs]="colDefs"
-          (gridReady)="onGridReady($event)"
-        >
-        </ag-grid-angular> -->
-      <!-- </div> -->
-    
-    
-    <div *ngIf="hideGridView"class="card-body">
+<!-- <div class="parent">
+
+
+
+    <div *ngIf="hideGridView" class="card-body">
         <div class="row">
-            <!-- <ng-container *ngIf="productCategories.length !== 0"> -->
-                <ng-container>
-                <div class="col-md-3 mb-3 col-md-4"
-                    *ngFor="let prod of products">
+            <ng-container>
+                <div *ngIf="loading$ | async">Loading...</div>
+                <div *ngIf="error$ | async as error">{{ error }}</div>
+
+                <div class="col-md-4 mb-4" *ngFor="let prod of products">
                     <div>
                         <div class="row">
-                            <div class="col-md-12" style="min-height: 20.125rem !important">
-    
+                            <div class="col-md-12" style="min-height: 20.125rem !important;padding-left: 100px;">
+
                                 <div class="card-body">
-                                    <img class="card-img-top prodImg" [src]=prod.images[0] alt="Card image">
-                                    
-                                        <h4>{{prod.title}}</h4>
-                                
-                                </div>
+                                    <img class="card-img-top prodImg" [src]=prod.thumbnail alt="Card image">
+                                    <!-- <div style="margin-left: 1.2rem;">Price: {{prod.price}}</div>
+                                    <div style="margin-left: 1.2rem;"> Rating: {{prod.rating}}</div> -->
+                                <!-- </div>
+
+                                <button type="button" class="btn btn-link"
+                                    (click)="loadDetailsPage(prod)">{{prod.title}}</button>
+
                             </div>
                         </div>
                     </div>
-                </div>
-            </ng-container>
+                </div> -->
+
+                <!-- </div> -->
+
+            <!-- </ng-container>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<!-- try  -->
+<div class="row">
+    <div class="col-md-6" *ngFor="let product of products">
+      <!-- <product-card [cardDesign]="'border-0'" [cardBodyClass]="'p-4 rounded'"
+        [productImg]="product.thumbnail" [productShortName]="product.title | titlecase"
+        [productPrice]="product.price" [productRating]="product.rating" (incrementQuantity)="increment(product)"
+        (decrementQuantity)="decrementQuantity(product)" (addProductToCart)="addProductToCart(product)"[quantity]="product.">
+      </product-card> -->
+      <product-card [cardDesign]="'border-0'" [cardBodyClass]="'p-4 rounded'"
+      [productImg]="product.thumbnail" [productShortName]="product.title | titlecase"
+      [productPrice]="product.price" [productRating]="product.rating" (incrementQuantity)="increment(product)"
+      (decrementQuantity)="decrementQuantity(product)" [quantity]="getQuantity(product)"
+      (addProductToCart)="addProductToCart(product)">
+    </product-card>
+    </div>
+  </div>

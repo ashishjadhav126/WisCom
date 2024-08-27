@@ -7,7 +7,9 @@ import { User } from '../type';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private authToken: any = '';
-    private currentUser = { username: '' };
+    private currentUser = { username: '',
+        userId:0
+     };
     private authSecretKey = 'Bearer Token';
     private isAuthenticated = false;
     public isLoggedIn: Subject<any> = new Subject();
@@ -23,7 +25,9 @@ export class AuthenticationService {
 
     resetAuthDetails() {
         this.authToken = '';
-        this.currentUser = { username: '' };
+        this.currentUser = { username: '',
+            userId:0
+         };
         localStorage.removeItem(this.authSecretKey);
     }
 
@@ -52,8 +56,10 @@ export class AuthenticationService {
                                 if (value && value.token) {
                                     this.authToken = value.token;
                                     localStorage.setItem(this.authSecretKey, this.authToken);
-                                    sessionStorage.setItem('userDetail', username);
-                                    this.currentUser = { username: username };
+                                    sessionStorage.setItem('userName', username);
+                                    this.currentUser = { username: username,
+                                        userId: value.id
+                                     };
         
                                     subscribe.next('SUCCESS'as any);
                                     this.isLoggedIn.next(true);

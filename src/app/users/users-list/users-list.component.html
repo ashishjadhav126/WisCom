@@ -1,1 +1,20 @@
-<p>users-list works!</p>
+<div class="topnav">
+    <a *ngIf="selectedRow.length > 0" (click)="editUser()">Edit</a>
+    <a *ngIf="selectedRow.length > 0" (click)="deleteUser()">Delete</a>
+</div>
+    
+    
+    <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
+      <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
+        <ag-grid-angular
+          style="width: 100%; height: 550px;"
+          [class]="themeClass"
+          [rowData]="rowData"
+          [columnDefs]="colDefs"  
+          [pagination]="true"
+          [rowSelection]="'single'"
+          (selectionChanged)="onSelectionChanged($event)"
+          (gridReady)="onGridReady($event)"
+        >
+        </ag-grid-angular>
+  

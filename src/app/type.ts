@@ -1,6 +1,6 @@
 export interface User {
     
-        "id"?: number,
+        "id": number,
         "username"?: string,
         "email"?: string,
         "firstName": string,
@@ -9,6 +9,7 @@ export interface User {
         "image"?:string,
         "token"?: string,
         "age":number,
+        "isDeleted"?:boolean
 }
 export interface Category {
     slug:string,
@@ -34,9 +35,9 @@ export interface Products {
           "height": number,
           "depth": number
         },
-        "warrantyInformation": "1 month warranty",
-        "shippingInformation": "Ships in 1 month",
-        "availabilityStatus": "Low Stock",
+        "warrantyInformation": string,
+        "shippingInformation": string,
+        "availabilityStatus": string,
         "reviews": [
           {
             "rating": number,
