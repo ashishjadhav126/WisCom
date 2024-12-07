@@ -1,0 +1,42 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+.topnav {
+   background-color:  #f3f4ee;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #691818;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: blueviolet;
+    color: rgb(12, 5, 5);
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #eac0af;
+    color: black;
+  }
+h3 {
+  font-family: arial, sans-serif;
+}
+label {
+  font-family: arial, sans-serif;
+}
+.cls-btn{
+  float: right;
+  min-width: 50px;
+}
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

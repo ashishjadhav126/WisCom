@@ -1,0 +1,94 @@
+<div>
+    <button type="button" (click) = "onCloseButton()" class="btn-close cls-btn m-3" aria-label="Close"></button>
+  </div>
+  <h1 class="pb-3" style="text-align: center;">Edit User</h1>
+  
+  <div class="container">
+    <div class="row">
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="mx-auto">
+              <div class="form-group p-2">
+               <label>First Name</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                  </div>
+                  <input
+                    type="text"
+                    id="firstName"
+                    class="form-control"
+                    placeholder=""
+                    formControlName="firstName"
+                   
+                  />
+                </div>
+                <div class="invalid-feedback" *ngIf="
+                      registrationForm?.controls?.firstName?.status === 'INVALID' &&
+                      (registrationForm?.controls?.firstName?.touched ||
+                        registrationForm?.controls?.firstName?.dirty)
+                    "
+                    >
+                    <span *ngIf="registrationForm?.controls?.firstName?.errors?.required"
+                  >Required</span>
+  
+                  </div>
+                </div>
+                <div class="form-group p-2">
+                    <label>Last Name</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input
+                      type="text"
+                      id="lastName"
+                      class="form-control"
+                      placeholder=""
+                      formControlName="lastName"
+                    />
+                  </div>
+                  <div class="invalid-feedback" *ngIf="
+                        registrationForm?.controls?.lastName?.status === 'INVALID' &&
+                        (registrationForm?.controls?.lastName?.touched ||
+                          registrationForm?.controls?.lastName?.dirty)
+                      "
+                      >
+                      <span *ngIf="registrationForm?.controls?.lastName?.errors?.required"
+                    >Required</span>
+    
+                    </div>
+                  </div>
+                  <div class="form-group p-2">
+                    <label>Age</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                      </div>
+                      <input
+                        type="number"
+                        id="age"
+                        class="form-control"
+                        placeholder=""
+                        formControlName="age"
+                      />
+                    </div>
+                    <div class="invalid-feedback" *ngIf="
+                          registrationForm?.controls?.age?.status === 'INVALID' &&
+                          (registrationForm?.controls?.age?.touched ||
+                            registrationForm?.controls?.age?.dirty)
+                        "
+                        >
+                        <span *ngIf="registrationForm?.controls?.age?.errors?.required"
+                      >Required</span>
+      
+                      </div>
+                    </div>
+              <button type="submit"  class="btn-primary btn w-75 m-5">
+                Update
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

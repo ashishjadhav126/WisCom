@@ -1,0 +1,54 @@
+<app-top-navigation></app-top-navigation>
+<!-- <div class="parent">
+
+
+
+    <div *ngIf="hideGridView" class="card-body">
+        <div class="row">
+            <ng-container>
+                <div *ngIf="loading$ | async">Loading...</div>
+                <div *ngIf="error$ | async as error">{{ error }}</div>
+
+                <div class="col-md-4 mb-4" *ngFor="let prod of products">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12" style="min-height: 20.125rem !important;padding-left: 100px;">
+
+                                <div class="card-body">
+                                    <img class="card-img-top prodImg" [src]=prod.thumbnail alt="Card image">
+                                    <!-- <div style="margin-left: 1.2rem;">Price: {{prod.price}}</div>
+                                    <div style="margin-left: 1.2rem;"> Rating: {{prod.rating}}</div> -->
+                                <!-- </div>
+
+                                <button type="button" class="btn btn-link"
+                                    (click)="loadDetailsPage(prod)">{{prod.title}}</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- </div> -->
+
+            <!-- </ng-container>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- try  -->
+<div class="row">
+    <div class="col-md-6" *ngFor="let product of products">
+      <!-- <product-card [cardDesign]="'border-0'" [cardBodyClass]="'p-4 rounded'"
+        [productImg]="product.thumbnail" [productShortName]="product.title | titlecase"
+        [productPrice]="product.price" [productRating]="product.rating" (incrementQuantity)="increment(product)"
+        (decrementQuantity)="decrementQuantity(product)" (addProductToCart)="addProductToCart(product)"[quantity]="product.">
+      </product-card> -->
+      <product-card [cardDesign]="'border-0'" [cardBodyClass]="'p-4 rounded'"
+      [productImg]="product.thumbnail" [productShortName]="product.title | titlecase"
+      [productPrice]="product.price" [productRating]="product.rating" (incrementQuantity)="increment(product)"
+      (decrementQuantity)="decrementQuantity(product)" [quantity]="getQuantity(product)"
+      (addProductToCart)="addProductToCart(product)">
+    </product-card>
+    </div>
+  </div>
